@@ -1,0 +1,4 @@
+<h1><%= @article.title %></h1>
+<%= Kramdown::Document.new(@article.content).to_html.html_safe %>
+
+<%= link_to 'Index', articles_path %>
