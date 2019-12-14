@@ -1,4 +1,16 @@
-<h1><%= @article.title %></h1>
-<%= Kramdown::Document.new(@article.content).to_html.html_safe %>
+<h2><%= @article.title %></h2>
 
-<%= link_to 'Index', articles_path %>
+<div>
+  <%= link_to edit_article_path(@article) do %><i class="far fa-edit"></i><% end %>
+
+  <%= link_to article_path(@article), method: :delete, data: { confirm: 'Are you sure?' } do %>
+    <i class="far fa-trash-alt"></i>
+  <% end %>
+</div>
+
+
+<img src="https://picsum.photos/750/250" alt="placeholder">
+
+<p><%= @article.content%></p>
+
+<%= link_to "Back to home page", articles_path%>
